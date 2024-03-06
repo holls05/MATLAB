@@ -2,7 +2,7 @@
 u = [4/sqrt(20); 2/sqrt(20)]; % You can choose any non-zero initial vector
 
 % Define the rotation matrix function
-theta = 2*pi / 6; % Angle for hexagon
+theta = 2*pi/6; % Angle for hexagon
 R = [cos(theta), -sin(theta); sin(theta), cos(theta)];
 
 % Initialize the matrix to store vectors
@@ -17,10 +17,10 @@ for i = 2:6
 end
 
      
-origin = zeros(1,size(M,2));
-figure;
+origin = zeros(1,size(M,2))
 plot(origin)
-figure;
+plot([origin; M(1,:)])
+plot([origin; M(2,:)])
 plot([origin; M(1,:)],[origin; M(2,:)]);
 
 
