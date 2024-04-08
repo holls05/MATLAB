@@ -1,21 +1,20 @@
-theta1= pi/2
-theta2 = pi/4
+function [root, iter] = testca(f, a, b, tol)
+root = 0; iter = 0;
+if f(a) * f(b) > 0
+ fprintf('Error: Initial points have same sign. \n');
+ return;
+end
 
-T1 = [cos(theta1), -sin(theta1); sin(theta1), cos(theta1)]
-
-T2 = [cos(theta2), -sin(theta2); sin(theta2), cos(theta2)]
-
-
-T1xT2= T1*T2
-
-T2xT1 = T2*T1
-
-
-%For case 1 (same) plot T1(T2) and T2(T1)
-
-
-
-
-
-%For case 2 (different) plot T1(T2) and T2(T1)
-%Your graphs should be the same in case 1 and different in case 2
+while ( abs(f(a)) >= tol && abs(f(b)) >= tol)
+ iter = iter + 1;
+ c = (a + b) / 2;
+ fprintf('No. %d: c=%f, f(c)=%f\n', iter, c, f(c));
+ if ( abs(f(c)) < tol)
+ break;
+ elseif ( f(a) * f(c) < 0)
+ b = c;
+ else
+ a = c;
+ end
+end
+root=c;

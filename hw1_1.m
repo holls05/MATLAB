@@ -11,7 +11,8 @@ mph_to_fps_factor = 1609 * 3.28 / 3600;
 
 % create the conversion table
 mph = 0 : 100 / 14 : 100;
-fps = mph * mph_to_fps_factor;
+
+
 mph_to_fps_table = [mph; fps]';
 
 fprintf('     MPH      FPS\n');
